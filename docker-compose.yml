@@ -1,0 +1,31 @@
+version: '3'
+services:
+  app:
+    container_name: messaging-spring
+    networks:
+      - messaging-network
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
+    depends_on:
+      - mysql
+  mysql:
+    container_name: messaging-mysql
+    networks:
+      - messaging-network
+    image: mysql:8.0.33
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_DATABASE=messaging
+    volumes:
+      - messaging-data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+volumes:
+  messaging-data:
+
+networks:
+  messaging-network:
+    driver: bridge

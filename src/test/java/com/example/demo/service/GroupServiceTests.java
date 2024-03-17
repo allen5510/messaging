@@ -1,15 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.controller.DTO.GroupDTO;
-import com.example.demo.controller.DTO.JoinedGroupDTO;
-import com.example.demo.controller.util.RegexType;
 import com.example.demo.exception.FormatException;
-import com.example.demo.exception.NotFoundException;
 import com.example.demo.exception.OperationException;
 import com.example.demo.repository.GroupRepository;
 import com.example.demo.repository.entity.GroupEntity;
-import com.example.demo.repository.entity.GroupMemberEntity;
-import com.example.demo.repository.entity.UserEntity;
 import com.example.demo.repository.entity.type.JoinStatus;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,9 +12,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -42,7 +34,7 @@ public class GroupServiceTests {
     @InjectMocks
     private GroupService groupService;
 
-    private GroupEntity mockGroup = new GroupEntity("test1", TEST_OWNER_ID);
+    private final GroupEntity mockGroup = new GroupEntity("test1", TEST_OWNER_ID);
 
     private GroupDTO mockGroupDTO;
 
@@ -90,16 +82,12 @@ public class GroupServiceTests {
 
     @Test
     public void testValidateGroupAdmin() {
-        assertDoesNotThrow(() -> {
-            groupService.validateGroupAdmin(TEST_OWNER_ID, mockGroupDTO);
-        });
+        assertDoesNotThrow(() -> groupService.validateGroupAdmin(TEST_OWNER_ID, mockGroupDTO));
     }
 
     @Test
     public void testValidateGroupAdmin_Error() {
-        assertThrows(OperationException.class, () -> {
-            groupService.validateGroupAdmin(TEST_ANOTHER_USER_ID, mockGroupDTO);
-        });
+        assertThrows(OperationException.class, () -> groupService.validateGroupAdmin(TEST_ANOTHER_USER_ID, mockGroupDTO));
     }
 
     @Test

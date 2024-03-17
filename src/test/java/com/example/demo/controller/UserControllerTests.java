@@ -82,7 +82,7 @@ class UserControllerTests {
     }
 
     @Test
-    void testRegister_AccountAlreadyExists() throws TokenException, FormatException, DuplicateException {
+    void testRegister_AccountAlreadyExists() throws FormatException, DuplicateException {
         // Arrange
         String account = "test@example.com";
         String password = "Abcd1234";

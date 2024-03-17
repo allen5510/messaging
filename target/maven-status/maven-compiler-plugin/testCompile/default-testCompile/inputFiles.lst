@@ -1,9 +1,6 @@
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/service/UserServiceTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/UserControllerTest.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/controller/UserControllerTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/service/GroupServiceTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/controller/GroupControllerTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/util/HashGeneratorTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/GroupControllerTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/MessagingApplicationTests.java
-/Users/yuyalun/Desktop/code/java/Messaging/src/test/java/com/example/demo/util/TestProcessorTests.java
+/Users/yuyalun/IdeaProjects/messaging/src/test/java/com/example/demo/controller/UserControllerTests.java
+/Users/yuyalun/IdeaProjects/messaging/src/test/java/com/example/demo/service/GroupServiceTests.java
+/Users/yuyalun/IdeaProjects/messaging/src/test/java/com/example/demo/MessagingApplicationTests.java
+/Users/yuyalun/IdeaProjects/messaging/src/test/java/com/example/demo/util/HashGeneratorTests.java
+/Users/yuyalun/IdeaProjects/messaging/src/test/java/com/example/demo/util/TestProcessorTests.java
+/Users/yuyalun/IdeaProjects/messaging/src/test/java/com/example/demo/service/UserServiceTests.java

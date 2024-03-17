@@ -1,7 +1,6 @@
 package com.example.demo.service;
 
 import com.example.demo.controller.DTO.UserDTO;
-import com.example.demo.controller.util.RegexType;
 import com.example.demo.exception.*;
 import com.example.demo.repository.UserRepository;
 import com.example.demo.repository.entity.UserEntity;
@@ -15,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -57,9 +55,7 @@ public class UserServiceTests {
 
     @Test
     public void testValidateUserExistence_Error(){
-        assertThrows(NotFoundException.class, () -> {
-            userService.validateUserExistence(NOT_EXISTS_USER_ID);
-        });
+        assertThrows(NotFoundException.class, () -> userService.validateUserExistence(NOT_EXISTS_USER_ID));
     }
 
     @Test
@@ -93,9 +89,7 @@ public class UserServiceTests {
 
     @Test
     public void testRegister_duplicate() {
-        assertThrows(DuplicateException.class, () -> {
-            userService.register(TEST_ACCOUNT, "1234qwer", "newAccount");
-        });
+        assertThrows(DuplicateException.class, () -> userService.register(TEST_ACCOUNT, "1234qwer", "newAccount"));
     }
 
     @Test
@@ -108,9 +102,7 @@ public class UserServiceTests {
 
     @Test
     public void testLogin_passwordError() {
-        assertThrows(LoginException.class, () -> {
-            userService.login(TEST_ACCOUNT, "wrongPassword");
-        });
+        assertThrows(LoginException.class, () -> userService.login(TEST_ACCOUNT, "wrongPassword"));
     }
 
     @Test
@@ -124,16 +116,12 @@ public class UserServiceTests {
 
     @Test
     public void testChangePassword_passwordError() {
-        assertThrows(LoginException.class, () -> {
-            userService.changePassword(TEST_USER_ID, "wrong password", "newPassword1234");
-        });
+        assertThrows(LoginException.class, () -> userService.changePassword(TEST_USER_ID, "wrong password", "newPassword1234"));
     }
 
     @Test
     public void testChangePassword_newPasswordFormatError() {
-        assertThrows(FormatException.class, () -> {
-            userService.changePassword(TEST_USER_ID, TEST_PASSWORD, "1234");
-        });
+        assertThrows(FormatException.class, () -> userService.changePassword(TEST_USER_ID, TEST_PASSWORD, "1234"));
     }
 
     @Test
